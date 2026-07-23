@@ -370,18 +370,32 @@ with open(file_name, 'w') as f:
         f.write(f"h_freq = {h_freq}\n")
     
     l_trans_bandwidth = config.get('l_trans_bandwidth', 'auto')
-    if l_trans_bandwidth:
-        if isinstance(l_trans_bandwidth, str):
-            f.write(f"l_trans_bandwidth = '{l_trans_bandwidth}'\n")
+    if l_trans_bandwidth not in [None, ""]:
+        if isinstance(l_trans_bandwidth, str) and l_trans_bandwidth.strip().lower() != 'auto':
+            try:
+                l_trans_bandwidth = float(l_trans_bandwidth)
+                f.write(f"l_trans_bandwidth = {l_trans_bandwidth}\n")
+            except ValueError:
+                raise ValueError(f"'l_trans_bandwidth' must be 'auto' or float")
         else:
-            f.write(f"l_trans_bandwidth = {l_trans_bandwidth}\n")
+            if isinstance(h_trans_bandwidth, str):
+                f.write(f"l_trans_bandwidth = '{l_trans_bandwidth}'\n") 
+            else:
+                f.write(f"l_trans_bandwidth = {l_trans_bandwidth}\n")
 
     h_trans_bandwidth = config.get('h_trans_bandwidth', 'auto')
-    if h_trans_bandwidth:
-        if isinstance(h_trans_bandwidth, str):
-            f.write(f"h_trans_bandwidth = '{h_trans_bandwidth}'\n")
+    if h_trans_bandwidth not in [None, ""]:
+        if isinstance(h_trans_bandwidth, str) and h_trans_bandwidth.strip().lower() != 'auto':
+            try:
+                h_trans_bandwidth = float(h_trans_bandwidth)
+                f.write(f"h_trans_bandwidth = {h_trans_bandwidth}\n")
+            except ValueError:
+                raise ValueError(f"'h_trans_bandwidth' debe ser 'auto' o un número, se recibió: {h_trans_bandwidth}")
         else:
-            f.write(f"h_trans_bandwidth = {h_trans_bandwidth}\n")
+            if isinstance(h_trans_bandwidth, str):
+                f.write(f"h_trans_bandwidth = '{h_trans_bandwidth}'\n")
+            else:
+                f.write(f"h_trans_bandwidth = {h_trans_bandwidth}\n")
 
     notch_freq = config.get('notch_freq', None)
     if notch_freq:
@@ -640,9 +654,16 @@ with open(file_name, 'w') as f:
     # 3. Amplitud-based artifact rejection
 
     reject = config.get('reject', None)
-    if reject:
+    if reject not in [None, ""]:
         if isinstance(reject, str):
-            f.write(f"reject = '{reject}'\n")
+            if reject in ('autoreject_global', 'autoreject_local'):
+                f.write(f"reject = '{reject}'\n")
+            else:
+                try:
+                    reject_dict = json.loads(reject)
+                except json.JSONDecodeError:
+                    raise ValueError(f"'reject' must be a valid value")
+                f.write(f"reject = {reject_dict}\n")
         else:
             f.write(f"reject = {reject}\n")
 
