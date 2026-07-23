@@ -378,7 +378,7 @@ with open(file_name, 'w') as f:
             except ValueError:
                 raise ValueError(f"'l_trans_bandwidth' must be 'auto' or float")
         else:
-            if isinstance(h_trans_bandwidth, str):
+            if isinstance(l_trans_bandwidth, str):
                 f.write(f"l_trans_bandwidth = '{l_trans_bandwidth}'\n") 
             else:
                 f.write(f"l_trans_bandwidth = {l_trans_bandwidth}\n")
