@@ -754,17 +754,19 @@ with open(file_name, 'w') as f:
             if mf_cal_fname:
                 f.write(f"mf_cal_fname = '{mf_cal_fname}'\n")
                 
+            mf_cal_fname = config.get('calibration', None)
+            if mf_cal_fname:
+                mf_cal_fname_abs = str(Path(mf_cal_fname).resolve())
+                f.write(f"mf_cal_fname = '{mf_cal_fname_abs}'\n")
+
             mf_cal_missing = config.get('mf_cal_missing', 'raise')
             if mf_cal_missing:
                 f.write(f"mf_cal_missing = '{mf_cal_missing}'\n")
-                
+
             mf_ctc_fname = config.get('crosstalk', None)
             if mf_ctc_fname:
-                f.write(f"mf_ctc_fname = '{mf_ctc_fname}'\n")
-                
-            mf_ctc_missing = config.get('mf_ctc_missing', 'raise')
-            if mf_ctc_missing:
-                f.write(f"mf_ctc_missing = '{mf_ctc_missing}'\n")
+                mf_ctc_fname_abs = str(Path(mf_ctc_fname).resolve())
+                f.write(f"mf_ctc_fname = '{mf_ctc_fname_abs}'\n")
                 
             mf_esss = config.get('mf_esss')
             if mf_esss in [None, ""]:
