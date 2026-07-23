@@ -203,7 +203,7 @@ with open(file_name, 'w') as f:
     f.write(f"bids_root = '{bids_root_path}'\n")
     f.write(f"deriv_root = '{deriv_root}'\n")
     f.write(f"subjects = ['{subject}']\n")
-    f.write(f"run = {run}\n")
+    f.write(f"run = ['{run}']\n")
     f.write(f"data_type = '{data_type}'\n")
 
     # Depends on whether it is EEG or MEG 
