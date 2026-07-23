@@ -68,6 +68,9 @@ raw = mne.io.read_raw(fname, preload = False, allow_maxshield = True)
 
 raw.load_data()
 
+if raw.info.get('subject_info') is not None:
+    raw.info['subject_info'].pop('birthday', None)
+
 for ch, ch_type in zip(raw.ch_names, raw.get_channel_types()):
     if ch_type not in ('eeg', 'ecg'):
         values = raw.get_data(picks = [ch])[0]
