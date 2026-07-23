@@ -749,7 +749,7 @@ with open(file_name, 'w') as f:
             if mf_ext_order in [None, ""]:
                 mf_ext_order = 3
             f.write(f"mf_ext_order = {mf_ext_order}\n")
-            '''
+    
             mf_cal_fname = config.get('calibration', None)
             if mf_cal_fname:
                 f.write(f"mf_cal_fname = '{mf_cal_fname}'\n")
@@ -771,7 +771,7 @@ with open(file_name, 'w') as f:
             mf_ctc_missing = config.get('mf_ctc_missing', 'warn')
             if mf_ctc_missing:
                 f.write(f"mf_ctc_missing = '{mf_ctc_missing}'\n")
-            '''
+    
             mf_esss = config.get('mf_esss')
             if mf_esss in [None, ""]:
                 mf_esss = 0
