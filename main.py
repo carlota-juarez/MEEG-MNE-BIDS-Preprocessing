@@ -719,6 +719,8 @@ with open(file_name, 'w') as f:
         # Maxwell filter for MEG
         f.write("mf_cal_fname = None\n")
         f.write("mf_ctc_fname = None\n")
+        f.write("mf_cal_missing = 'ignore'\n")
+        f.write("mf_ctc_missing = 'ignore'\n")
         use_maxwell_filter = config.get('use_maxwell_filter', False)
         f.write(f"use_maxwell_filter = {use_maxwell_filter}\n")
         if use_maxwell_filter:
