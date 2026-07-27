@@ -1,7 +1,7 @@
 # This file is a MNE python-based brainlife.io App
 
-# Author: Guiomar Niso Galán
 # Author: Carlota Juárez Alonso
+# Author: Guiomar Niso Galán
 # Neuroimaging Group, Cajal Neuroscience Center, CSIC
 
 # 03/07/2026
