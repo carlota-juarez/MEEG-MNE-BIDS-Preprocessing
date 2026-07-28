@@ -146,7 +146,7 @@ task = config.get('task')
 
 # bids_path is a single patient file 
 
-bids_path = mne_bids.BIDSPath(subject = subject, task = task, run = run, datatype = data_type, root = bids_root_path)
+bids_path = mne_bids.BIDSPath(subject = subject, task = task, run = runs, datatype = data_type, root = bids_root_path)
 
 # Identify the file format
 file_format = 'EDF' if edf else 'FIF'
