@@ -7,7 +7,7 @@
 
 # 03/07/2026
 
-# Set up enviroment
+# Set up enviroment 
 
 import json
 from pathlib import Path

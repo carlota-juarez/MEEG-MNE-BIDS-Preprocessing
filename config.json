@@ -1,5 +1,5 @@
 {
-  "edf": "test_file.edf",
+  "edf": "test_file.edf", 
   "fif": null,
   "meg_ch_types": "meg",
   "task": "auditory",

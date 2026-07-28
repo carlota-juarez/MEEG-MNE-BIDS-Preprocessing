@@ -6,7 +6,7 @@ set -e
 
 # Make output directory
 mkdir -p out_dir
-mkdir -p html_report
+mkdir -p html_report 
 
 # Prevent from creating too many threads to avoid an Out Of Memory (OOM) error in Brainlife
 export OMP_NUM_THREADS=1

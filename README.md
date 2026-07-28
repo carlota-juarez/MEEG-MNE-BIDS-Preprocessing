@@ -1,4 +1,4 @@
-# MNE-BIDS-Pipeline [1]: MEEG Preprocessing
+# MNE-BIDS-Pipeline [1]: MEEG Preprocessing 
 
 This Brainlife App imports and preprocesses M/EEG data (EDF for EEG and FIF for MEG) using MNE-BIDS-Pipeline. The App converts the input data into Brain Imaging Data Structure (BIDS) format and runs the init and preprocessing steps of MNE-BIDS-Pipeline, covering the following steps:
 1. Reads a single-subject raw recording (.edf or .fif file) and handles it like a BIDS structure (sub-01).
