@@ -135,7 +135,7 @@ except Exception as e:
 inputs = config.get('_inputs', [{}])[0].get('meta', {})
 
 subject = inputs.get('subject')
-run = config.get('run')
+runs = config.get('runs')
 
 if not subject or not run:
     raise ValueError("'subject' y 'run' could not be detected in the inputs")
