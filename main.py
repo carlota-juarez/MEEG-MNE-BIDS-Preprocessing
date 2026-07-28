@@ -137,7 +137,7 @@ inputs = config.get('_inputs', [{}])[0].get('meta', {})
 subject = inputs.get('subject')
 runs = config.get('runs')
 
-if not subject or not run:
+if not subject or not runs:
     raise ValueError("'subject' y 'run' could not be detected in the inputs")
 
 # If task different from rest, conditions must be filled with some values
